@@ -36,7 +36,7 @@ async function calculateNumDistinctGuardPositions() {
     visited.add(`${row},${col}`);
 
     // Hit an obstacle, turn right
-    if (
+    while (
       isInBounds(row + direction[0], col + direction[1]) &&
       MATRIX[row + direction[0]][col + direction[1]] === "#"
     ) {
