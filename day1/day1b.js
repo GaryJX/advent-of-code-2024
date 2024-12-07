@@ -11,7 +11,15 @@ async function getSimilarityScore() {
     list2.push(num1);
   });
 
-  list2NumCounts = {};
+  const list1NumCounts = {};
+  const list2NumCounts = {};
+  list1.forEach((num) => {
+    if (list1NumCounts[num]) {
+      list1NumCounts[num]++;
+    } else {
+      list1NumCounts[num] = 1;
+    }
+  });
   list2.forEach((num) => {
     if (list2NumCounts[num]) {
       list2NumCounts[num]++;
@@ -21,13 +29,13 @@ async function getSimilarityScore() {
   });
 
   let similarityScore = 0;
-  list1.forEach((num) => {
+  for (let num in list1NumCounts) {
     if (list2NumCounts[num]) {
-      similarityScore += num * list2NumCounts[num];
+      similarityScore += num * list1NumCounts[num] * list2NumCounts[num];
     }
-  });
+  }
 
-  console.log(similarityScore); // 24316233
+  console.log(similarityScore);
 }
 
 getSimilarityScore();
