@@ -1,4 +1,4 @@
-async function main() {
+async function getTotalDistance() {
   const fs = require("fs/promises");
   const data = await fs.readFile("./input.txt", "utf8");
   const rows = data.split("\n");
@@ -17,7 +17,7 @@ async function main() {
   for (let i = 0; i < list1.length; i++) {
     totalDistance += Math.abs(list1[i] - list2[i]);
   }
-  console.log(totalDistance); // 1666427
+  console.log(totalDistance);
 }
 
-main();
+getTotalDistance();
