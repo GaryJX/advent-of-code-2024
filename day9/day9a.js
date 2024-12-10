@@ -6,16 +6,15 @@ async function calculateChecksum() {
   let currentIndex = 0;
   for (let i = 0; i < data.length; i++) {
     const num = parseInt(data[i]);
-    for (let j = 0; j < num; j++) {
-      if (i % 2 == 0) {
+    if (i % 2 == 0) {
+      for (let j = 0; j < num; j++) {
         expandedData.push(currentIndex);
-      } else {
+      }
+      currentIndex++;
+    } else {
+      for (let j = 0; j < num; j++) {
         expandedData.push(".");
       }
-    }
-
-    if (i % 2 == 0) {
-      currentIndex++;
     }
   }
 
