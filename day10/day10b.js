@@ -14,10 +14,10 @@ async function calculateSumTrailheadRatings() {
   }
 
   const direction = [
-    [1, 0],
-    [0, 1],
-    [-1, 0],
-    [0, -1],
+    [1, 0], // Down
+    [0, 1], // Right
+    [-1, 0], // Up
+    [0, -1], // Left
   ];
 
   function dfs(i, j, num, visitedMap) {
